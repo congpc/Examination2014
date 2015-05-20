@@ -1,0 +1,35 @@
+//
+//  PHAM_CHI_CONG-Prefix.pch
+//  PHAM_CHI_CONG
+//
+//  Created by TTA-Brown-006 on 4/10/15.
+//  Copyright (c) 2015 Pham Chi Cong. All rights reserved.
+//
+
+#ifndef PHAM_CHI_CONG_PHAM_CHI_CONG_Prefix_pch
+#define PHAM_CHI_CONG_PHAM_CHI_CONG_Prefix_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#import "PCDatabaseManager.h"
+#import "AppDelegate.h"
+#import "Constants.h"
+
+#endif
+
+// DLog will output like NSLog only when the DEBUG variable is set
+#ifdef DEBUG
+#   define DLog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+#else
+#   define DLog(...)
+#endif
+
+// ALog will always output like NSLog
+#define ALog(fmt, ...) NSLog((@"%s [Line %d] " fmt), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__);
+
+// ULog will show the UIAlertView only when the DEBUG variable is set
+#ifdef DEBUG
+#   define ULog(fmt, ...)  { UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%s\n [Line %d] ", __PRETTY_FUNCTION__, __LINE__] message:[NSString stringWithFormat:fmt, ##__VA_ARGS__]  delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil]; [alert show]; }
+#else
+#   define ULog(...)
+#endif
